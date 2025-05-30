@@ -3,5 +3,5 @@
 # @作者: muci
 import os
 
-PUSHPLUS_TOKEN = os.getenv("PUSHPLUS_TOKEN", "6ad4c314611a48a18e5e414d6e105b3e")
+PUSHPLUS_TOKEN = os.getenv("PUSHPLUS_TOKEN")
 JSON_FILE_PATH = os.getenv("COURSE_JSON_FILE", "fangzheng.json")
