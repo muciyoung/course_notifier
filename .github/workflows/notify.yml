@@ -26,3 +26,9 @@ jobs:
           PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
           COURSE_JSON_FILE: fangzheng.json
         run: python main.py
+
+      - name: 打印执行完成时间（UTC + 北京时间）
+        run: |
+          echo "✅ 执行完毕"
+          echo "当前 UTC 时间：$(date -u '+%Y-%m-%d %H:%M:%S')"
+          echo "北京时间：$(TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M:%S')"
