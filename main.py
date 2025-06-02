@@ -2,9 +2,10 @@
 # @日期:2025/5/30
 # @作者: muci
 import requests
-import datetime
+from datetime import datetime
 import json
 import re
+import pytz
 import sys
 from config import PUSHPLUS_TOKEN, JSON_FILE_PATH
 
@@ -57,8 +58,11 @@ def main():
         print(f"读取课程文件失败: {e}")
         sys.exit(1)
 
-    today_str = datetime.datetime.now().strftime('%Y-%m-%d')
-    today_courses = [c for c in courses if c.get("日期") == today_str]
+    # 指定北京时间时区
+    beijing_tz = pytz.timezone("Asia/Shanghai")
+    # 获取当前北京时间（含时区信息）
+    beijing_now = datetime.now(beijing_tz).strftime('%Y-%m-%d')
+    today_courses = [c for c in courses if c.get("日期") == beijing_now]
     html_content = render_html(today_courses)
     title = (
         f"今日无课！快乐摸鱼~ 🎉"
