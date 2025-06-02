@@ -71,6 +71,7 @@ def main():
     )
     payload = {
         "token": PUSHPLUS_TOKEN,
+        "topic": "group001",
         "title": title,
         "content": html_content,
         "template": "html"
